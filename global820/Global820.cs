@@ -20,6 +20,7 @@ namespace global820
         private int currentLine = 0;
         private System.Timers.Timer tmr;
         private bool filterBroken = false;
+        private long startPos = 0;
 
         public Global820()
         {
@@ -131,6 +132,10 @@ namespace global820
             }
 
             using (Stream s = new FileStream(Path.GetFullPath(Properties.Settings.Default.LogPath), FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
+                if (startPos <= 0) {
+                    startPos = s.Length - 1024;
+                }
+                s.Position = startPos;
                 StreamReader rdr = new StreamReader(s);
                 for (int i = 0; i < currentLine; i++) {
                     if (rdr.EndOfStream) break;
