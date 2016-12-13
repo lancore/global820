@@ -148,7 +148,6 @@ namespace global820
             }
 
             using (Stream s = new FileStream(Path.GetFullPath(Properties.Settings.Default.LogPath), FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
-                bool suppressNotifications = false;
                 if (startPos <= 0) {
                     startPos = s.Length - 1024;
                 }
@@ -214,6 +213,10 @@ namespace global820
 
         private void Global820_Shown(object sender, EventArgs e) {
             start();
+        }
+
+        private void onTop_CheckedChanged(object sender, EventArgs e) {
+            this.TopMost = onTop.Checked;
         }
     }
 }

@@ -56,7 +56,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>cert.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>global820.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>FD41D0A92E90B096A89B604CFA76C1B06EFC36AC</ManifestCertificateThumbprint>

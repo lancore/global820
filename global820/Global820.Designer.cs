@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Global820));
             this.chat = new System.Windows.Forms.Panel();
             this.settings = new System.Windows.Forms.Button();
+            this.onTop = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chat
@@ -58,11 +59,23 @@
             this.settings.UseVisualStyleBackColor = true;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
+            // onTop
+            // 
+            this.onTop.AutoSize = true;
+            this.onTop.Location = new System.Drawing.Point(12, 415);
+            this.onTop.Name = "onTop";
+            this.onTop.Size = new System.Drawing.Size(83, 17);
+            this.onTop.TabIndex = 5;
+            this.onTop.Text = "keep on top";
+            this.onTop.UseVisualStyleBackColor = true;
+            this.onTop.CheckedChanged += new System.EventHandler(this.onTop_CheckedChanged);
+            // 
             // Global820
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 446);
+            this.Controls.Add(this.onTop);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.chat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -70,6 +83,7 @@
             this.Text = "Global 820";
             this.Shown += new System.EventHandler(this.Global820_Shown);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -77,6 +91,7 @@
 
         private System.Windows.Forms.Panel chat;
         private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.CheckBox onTop;
     }
 }
 
