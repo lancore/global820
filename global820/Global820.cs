@@ -21,6 +21,7 @@ namespace global820
         private System.Timers.Timer tmr;
         private bool filterBroken = false;
         private long startPos = 0;
+        System.Media.SoundPlayer notify;
 
         public Global820()
         {
@@ -31,6 +32,10 @@ namespace global820
             chat.HorizontalScroll.Maximum = 0;
             chat.VerticalScroll.Value = 0;
             chat.AutoScroll = true;
+
+            System.Reflection.Assembly a = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream s = a.GetManifestResourceStream("global820.notify.wav");
+            notify = new System.Media.SoundPlayer(s);
         }
         private Control processLine(string line) {
             Panel pnl = null;
@@ -38,9 +43,11 @@ namespace global820
             if (match.Success) {
                 //char type = match.Groups[1].Value[0];
                 //if (type=='@' || type =='#' || type=='$') {
+                //we only want the global chat
                 if (match.Groups[1].Value[0] == '#') {
                     string[] data = match.Groups[1].Value.Split(new string[] { ": " }, 2, StringSplitOptions.None);
 
+                    //use the filters
                     string[] filters = Properties.Settings.Default.Filter.Split(new string[] { System.Environment.NewLine },StringSplitOptions.RemoveEmptyEntries);
                     foreach (string filter in filters) {
                         try {
@@ -93,6 +100,15 @@ namespace global820
                     txt.MouseLeave += pnl_MouseLeave;
                     txt.MouseEnter += pnl_MouseEnter;
                     txt.Click += pnl_Click;
+
+                    //check for notifications
+                    string[] notifyList = Properties.Settings.Default.NotifyList.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string item in notifyList) {
+                        if (Regex.Match(data[1], item, RegexOptions.IgnoreCase).Success) {
+                            notify.Play();
+                            pnl.BackColor = SystemColors.GradientInactiveCaption;
+                        }
+                    }
                 }
             }
 
@@ -132,6 +148,7 @@ namespace global820
             }
 
             using (Stream s = new FileStream(Path.GetFullPath(Properties.Settings.Default.LogPath), FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
+                bool suppressNotifications = false;
                 if (startPos <= 0) {
                     startPos = s.Length - 1024;
                 }
@@ -187,6 +204,7 @@ namespace global820
                 filterBroken = false;
                 chat.Controls.Clear();
                 currentLine = 0;
+                startPos = 0;
                 tmr_Elapsed(null, null);
                 tmr.Start();
             } else {
