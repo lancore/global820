@@ -49,7 +49,7 @@ namespace global820.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("^LF ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("^(?!.*rota).*LF .*$")]
         public string Filter {
             get {
                 return ((string)(this["Filter"]));

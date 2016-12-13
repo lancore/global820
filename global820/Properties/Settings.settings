@@ -9,7 +9,7 @@
       <Value Profile="(Default)">Hi, still got room?</Value>
     </Setting>
     <Setting Name="Filter" Type="System.String" Scope="User">
-      <Value Profile="(Default)">^LF </Value>
+      <Value Profile="(Default)">^(?!.*rota).*LF .*$</Value>
     </Setting>
     <Setting Name="Whitelist" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
