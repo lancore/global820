@@ -8,6 +8,7 @@ pretty checklist, because everyone else has one:
   - filters the chat through regular expressions
   - use your own filter (for example, only show specific masters)
   - click on a message to copy a party request whisper to your clipboard
+  - open source (because who trusts random 3rd party tools on the internet?) 
 
 # Binary
 https://github.com/lancore/global820/raw/master/global820.exe
