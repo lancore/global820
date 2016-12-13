@@ -1,5 +1,5 @@
 # global820
-Filter those LFers!
+Remove those LFers!
 
 Filters are simple Regular Expressions.
 
