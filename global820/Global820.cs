@@ -133,7 +133,9 @@ namespace global820
                             notify.Play();
                             pnl.BackColor = SystemColors.GradientInactiveCaption;
                             if (Properties.Settings.Default.PartyReq == 1 || Properties.Settings.Default.PartyReq == 2) {
-                              //  Clipboard.SetText(whisperMsg);
+                                this.Invoke(new ThreadStart(delegate {
+                                    Clipboard.SetText(whisperMsg);
+                                }));
                             }
                         }
                     }
