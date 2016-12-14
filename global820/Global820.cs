@@ -49,6 +49,7 @@ namespace global820
                     string time = match.Groups[1].Value;
                     string text = data[1];
                     string player = data[0].Substring(1);
+                    string whisperMsg = "@" + Regex.Replace(player, "^<.*> ", "") + " " + Properties.Settings.Default.WhisperMsg;
 
                     //use the filters
                     string[] filters = Properties.Settings.Default.Filter.Split(new string[] { System.Environment.NewLine },StringSplitOptions.RemoveEmptyEntries);
@@ -75,7 +76,7 @@ namespace global820
                         pnl.Click += pnl_Click;
                     }
                     pnl.Font = new Font(pnl.Font.FontFamily, pnl.Font.Size * 1.2f);
-                    pnl.Tag = "@" + Regex.Replace(player, "^<.*> ", "") + " " + Properties.Settings.Default.WhisperMsg; //just save the msg here, instead of parsing the name later
+                    pnl.Tag = whisperMsg; //just save the msg here, instead of parsing the name later
 
                     Label name = new Label();
                     name.Name = "name";
@@ -107,6 +108,7 @@ namespace global820
                     if (Properties.Settings.Default.PartyReq == 0 || Properties.Settings.Default.PartyReq == 2) {
                         name.Click += pnl_Click;
                     }
+                    name.Tag = whisperMsg;
 
                     Label txt = new Label();
                     txt.Name = "txt";
@@ -122,6 +124,7 @@ namespace global820
                     if (Properties.Settings.Default.PartyReq == 0 || Properties.Settings.Default.PartyReq == 2) {
                         txt.Click += pnl_Click;
                     }
+                    txt.Tag = whisperMsg;
 
                     //check for notifications
                     string[] notifyList = Properties.Settings.Default.NotifyList.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -130,7 +133,7 @@ namespace global820
                             notify.Play();
                             pnl.BackColor = SystemColors.GradientInactiveCaption;
                             if (Properties.Settings.Default.PartyReq == 1 || Properties.Settings.Default.PartyReq == 2) {
-                                Clipboard.SetText(pnl.Tag.ToString());
+                              //  Clipboard.SetText(whisperMsg);
                             }
                         }
                     }
@@ -141,13 +144,7 @@ namespace global820
         }
 
         void pnl_Click(object sender, EventArgs e) {
-            string msg;
-            if (sender is Panel) {
-                msg = ((Panel)sender).Tag.ToString();
-            } else {
-                msg = ((Panel)((Control)sender).Parent).Tag.ToString();
-            }
-            Clipboard.SetText(msg);
+            Clipboard.SetText(((Control)sender).Tag.ToString());
         }
 
         void pnl_MouseLeave(object sender, EventArgs e) {
