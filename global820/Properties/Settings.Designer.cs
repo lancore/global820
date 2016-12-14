@@ -85,13 +85,97 @@ namespace global820.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("nemesis")]
         public string NotifyList {
             get {
                 return ((string)(this["NotifyList"]));
             }
             set {
                 this["NotifyList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PartyReq {
+            get {
+                return ((int)(this["PartyReq"]));
+            }
+            set {
+                this["PartyReq"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowGlobal {
+            get {
+                return ((bool)(this["ShowGlobal"]));
+            }
+            set {
+                this["ShowGlobal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowTrade {
+            get {
+                return ((bool)(this["ShowTrade"]));
+            }
+            set {
+                this["ShowTrade"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowWhisper {
+            get {
+                return ((bool)(this["ShowWhisper"]));
+            }
+            set {
+                this["ShowWhisper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowParty {
+            get {
+                return ((bool)(this["ShowParty"]));
+            }
+            set {
+                this["ShowParty"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowGuild {
+            get {
+                return ((bool)(this["ShowGuild"]));
+            }
+            set {
+                this["ShowGuild"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowTime {
+            get {
+                return ((bool)(this["ShowTime"]));
+            }
+            set {
+                this["ShowTime"] = value;
             }
         }
     }

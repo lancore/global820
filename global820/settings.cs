@@ -25,7 +25,9 @@ namespace global820 {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            Properties.Settings.Default.Reset();
+            if (MessageBox.Show("You sure about that?", "Reset to default", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes) {
+                Properties.Settings.Default.Reset();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e) {

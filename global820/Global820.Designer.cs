@@ -44,7 +44,7 @@
             this.chat.Location = new System.Drawing.Point(12, 12);
             this.chat.Name = "chat";
             this.chat.Size = new System.Drawing.Size(664, 393);
-            this.chat.TabIndex = 3;
+            this.chat.TabIndex = 0;
             this.chat.MouseEnter += new System.EventHandler(this.chat_MouseEnter);
             this.chat.Resize += new System.EventHandler(this.chat_Resize);
             // 
@@ -54,7 +54,7 @@
             this.settings.Location = new System.Drawing.Point(601, 411);
             this.settings.Name = "settings";
             this.settings.Size = new System.Drawing.Size(75, 23);
-            this.settings.TabIndex = 4;
+            this.settings.TabIndex = 2;
             this.settings.Text = "settings";
             this.settings.UseVisualStyleBackColor = true;
             this.settings.Click += new System.EventHandler(this.settings_Click);
@@ -65,7 +65,7 @@
             this.onTop.Location = new System.Drawing.Point(12, 415);
             this.onTop.Name = "onTop";
             this.onTop.Size = new System.Drawing.Size(83, 17);
-            this.onTop.TabIndex = 5;
+            this.onTop.TabIndex = 1;
             this.onTop.Text = "keep on top";
             this.onTop.UseVisualStyleBackColor = true;
             this.onTop.CheckedChanged += new System.EventHandler(this.onTop_CheckedChanged);
