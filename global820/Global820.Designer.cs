@@ -61,6 +61,7 @@
             // 
             // onTop
             // 
+            this.onTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.onTop.AutoSize = true;
             this.onTop.Location = new System.Drawing.Point(12, 415);
             this.onTop.Name = "onTop";
