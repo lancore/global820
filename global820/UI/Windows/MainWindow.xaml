@@ -1,0 +1,82 @@
+﻿<Window x:Name="w_Chat"
+        x:Class="global820.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:global820"
+        xmlns:ui="clr-namespace:global820.UI"
+        mc:Ignorable="d"
+        Title="Global 820"
+        Height="350"
+        Width="525"
+        Loaded="w_Chat_Loaded">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <!--<Setter Property="Opacity" Value="0.5" />
+            <Setter Property="MaxHeight" Value="75" />-->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Aqua" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <DataTemplate x:Key="ChatMessages" DataType="local:ChatMessage">
+            <ui:ChatLine Sender="{Binding Sender}"
+                         MessageText="{Binding Message}"
+                         Channel="{Binding Channel}"
+                         TimeStamp="{Binding TimeStamp}"
+                         NotificationMatch="{Binding NotificationMatch}" />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="287*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <!--<ListBox x:Name="lb_chat"
+                 Margin="15"
+                 Grid.ColumnSpan="2" />-->
+        <ListView x:Name="lv_chat"
+                  Margin="15"
+                  Grid.ColumnSpan="2"
+                  ItemTemplate="{StaticResource ChatMessages}"
+                  ItemsSource="{Binding ChatMessages}"
+                  IsSynchronizedWithCurrentItem="True"
+                  ui:ListViewBehavior.ScrollOnNewItem="True">
+            <!--<ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>-->
+        </ListView>
+        <CheckBox x:Name="chk_keepOnTop"
+                  Content="Keep on Top"
+                  HorizontalAlignment="Left"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  VerticalAlignment="Center"
+                  Margin="15,0,0,0"
+                  Checked="chk_keepOnTop_Checked"
+                  IsChecked="{Binding Topmost,
+                                      ElementName=w_Chat}" />
+        <Button x:Name="btn_settings"
+                Content="Settings"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Width="75"
+                Margin="0,0,15,0"
+                Click="btn_settings_Click" />
+
+    </Grid>
+</Window>

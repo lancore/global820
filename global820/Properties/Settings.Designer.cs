@@ -12,7 +12,7 @@ namespace global820.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -92,6 +92,78 @@ namespace global820.Properties {
             }
             set {
                 this["NotifyList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChannelFilter_Local {
+            get {
+                return ((bool)(this["ChannelFilter_Local"]));
+            }
+            set {
+                this["ChannelFilter_Local"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ChannelFilter_Global {
+            get {
+                return ((bool)(this["ChannelFilter_Global"]));
+            }
+            set {
+                this["ChannelFilter_Global"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChannelFilter_Trade {
+            get {
+                return ((bool)(this["ChannelFilter_Trade"]));
+            }
+            set {
+                this["ChannelFilter_Trade"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChannelFilter_Party {
+            get {
+                return ((bool)(this["ChannelFilter_Party"]));
+            }
+            set {
+                this["ChannelFilter_Party"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChannelFilter_Whisper {
+            get {
+                return ((bool)(this["ChannelFilter_Whisper"]));
+            }
+            set {
+                this["ChannelFilter_Whisper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChannelFilter_Guild {
+            get {
+                return ((bool)(this["ChannelFilter_Guild"]));
+            }
+            set {
+                this["ChannelFilter_Guild"] = value;
             }
         }
     }
