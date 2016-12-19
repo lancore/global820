@@ -9,8 +9,9 @@
         Title="Settings"
         Height="353.533"
         Width="300"
-        Closing="Window_Closing">
-    <Grid Margin="7">
+        Closing="Window_Closing"
+        Background="{StaticResource BackgroundKey}">
+    <Grid Margin="7" Background="{StaticResource BackgroundKey}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="2*" />
@@ -190,7 +191,6 @@
                     Grid.Column="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Width="50"
                     Click="btn_reset_Click" />
         </Grid>
 

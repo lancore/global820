@@ -255,6 +255,11 @@ namespace global820
                 start();
             }
         }
+
+        private void btn_clear_Click(object sender, RoutedEventArgs e)
+        {
+            ChatMessages.Clear();
+        }
     }
 }
 

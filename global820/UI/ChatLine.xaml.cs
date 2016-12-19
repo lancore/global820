@@ -31,7 +31,7 @@ namespace global820.UI
 
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Debugger.Break();
+            //Debugger.Break();
         }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)

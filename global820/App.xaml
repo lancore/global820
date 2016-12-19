@@ -1,7 +1,17 @@
-﻿<Application x:Class="global820.App"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns:local="clr-namespace:global820"
+             StartupUri="UI/Windows/MainWindow.xaml"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:global820"
-             StartupUri="UI/Windows/MainWindow.xaml">
-    <Application.Resources />
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="BackgroundKey" Color="#FF181818" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MetroDark/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/MetroDark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--<Style TargetType="{x:Type Rectangle}" />-->
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

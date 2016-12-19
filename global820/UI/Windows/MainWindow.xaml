@@ -12,9 +12,9 @@
         Width="525"
         Loaded="w_Chat_Loaded">
     <Window.Resources>
+
+        
         <Style TargetType="ListViewItem">
-            <!--<Setter Property="Opacity" Value="0.5" />
-            <Setter Property="MaxHeight" Value="75" />-->
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="Aqua" />
@@ -33,8 +33,9 @@
                          NotificationMatch="{Binding NotificationMatch}" />
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid Background="{StaticResource BackgroundKey}">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
@@ -47,7 +48,7 @@
                  Grid.ColumnSpan="2" />-->
         <ListView x:Name="lv_chat"
                   Margin="15"
-                  Grid.ColumnSpan="2"
+                  Grid.ColumnSpan="3"
                   ItemTemplate="{StaticResource ChatMessages}"
                   ItemsSource="{Binding ChatMessages}"
                   IsSynchronizedWithCurrentItem="True"
@@ -64,19 +65,28 @@
                   Grid.Row="1"
                   Grid.Column="0"
                   VerticalAlignment="Center"
-                  Margin="15,0,0,0"
+                  Margin="15,10,0,10"
                   Checked="chk_keepOnTop_Checked"
                   IsChecked="{Binding Topmost,
                                       ElementName=w_Chat}" />
         <Button x:Name="btn_settings"
                 Content="Settings"
-                Grid.Column="1"
+                Grid.Column="2"
                 HorizontalAlignment="Right"
                 Grid.Row="1"
                 VerticalAlignment="Center"
                 Width="75"
-                Margin="0,0,15,0"
+                Margin="0,10,15,10"
                 Click="btn_settings_Click" />
+
+        <Button x:Name="btn_clear"
+                Content="Clear Chat"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Margin="0,10,15,10"
+                Click="btn_clear_Click" />
 
     </Grid>
 </Window>

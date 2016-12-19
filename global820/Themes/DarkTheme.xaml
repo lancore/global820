@@ -1,0 +1,423 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d">
+
+    <Color x:Key="ControlNormalColor">#FFC0C0CE</Color>
+    <Color x:Key="ControlMouseOverColor">#FFAFA3B9</Color>
+    <Color x:Key="DisabledControlColor">#FFF2F2F2</Color>
+    <Color x:Key="DisabledForegroundColor">#FFBFBFBF</Color>
+    <Color x:Key="ControlPressedColor">#FF211AA9</Color>
+    <Color x:Key="Color_Dark_Text_Hover">#FFAAF9F2</Color>
+    <Color x:Key="Color_Dark_Background_Hover">#FF3E3E3E</Color>
+    <Color x:Key="Color_DarkBackground_Light">#FF2E2E2E</Color>
+    <Color x:Key="Color_DarkBackground_Light2">#FF363636</Color>
+    <Color x:Key="Color_DarkBackground_Light3">#FF3E3E3E</Color>
+
+    <Color x:Key="Color_DarkBackground">#FF202020</Color>
+    <Color x:Key="Color_DarkBackground2">#FF282828</Color>
+    <Color x:Key="Color_DarkBackground3">#FF303030</Color>
+    <Color x:Key="Color_Dark_Text">#FFE8E8E8</Color>
+    <Color x:Key="Color_Dark_Text_Clicked">#FF7DFFF4</Color>
+    <Color x:Key="Color_Dark_Text_Disabled">#FF6D6D6D</Color>
+    <Color x:Key="Transparent">#00211AA9</Color>
+    <!--  TODO: generate colors automatically from difference (like i do in FAB:Reader) from a base color  -->
+    <SolidColorBrush x:Key="DarkBackground_Light" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="DarkBackground" Color="#FF202020" />
+
+    <SolidColorBrush x:Key="Dark_Background_Light_Border" Color="#FF3E3E3E" />
+    <SolidColorBrush x:Key="TransparentBrush" Color="#00211AA9" />
+
+    <SolidColorBrush x:Key="Dark_Text" Color="#FFE8E8E8" />
+    <SolidColorBrush x:Key="Dark_Text_Passive" Color="#FFB2B2B2" />
+    <SolidColorBrush x:Key="Dark_Text_Hover" Color="#FFAAF9F2" />
+    <SolidColorBrush x:Key="Dark_Text_Clicked" Color="#FF7DFFF4" />
+    <SolidColorBrush x:Key="Dark_Text_Disabled" Color="#FF232323" />
+
+    <SolidColorBrush x:Key="Dark_Background_Selected" Color="#FF343E3E" />
+    <SolidColorBrush x:Key="Dark_Background_Hover" Color="#FF3E3E3E" />
+    <SolidColorBrush x:Key="Dark_Background_Clicked" Color="#FF3E3E3E" />
+    <SolidColorBrush x:Key="Dark_Background_Disabled" Color="#FF303030" />
+    <SolidColorBrush x:Key="Dark_Foreground_Disabled" Color="#FFBFBFBF" />
+
+
+
+
+
+
+
+
+
+    <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Border x:Name="Border"
+                    Grid.ColumnSpan="2"
+                    Background="{DynamicResource DarkBackground_Light}"
+                    BorderBrush="{DynamicResource Dark_Background_Light_Border}"
+                    BorderThickness="1"
+                    CornerRadius="2" />
+            <Border Grid.Column="0"
+                    Margin="1"
+                    Background="{DynamicResource DarkBackground_Light}"
+                    BorderBrush="{DynamicResource Dark_Background_Light_Border}"
+                    CornerRadius="2,0,0,2" />
+            <!--  BorderThickness="0,0,1,0"  -->
+            <Path x:Name="Arrow"
+                  Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M 0 0 L 4 4 L 8 0 Z"
+                  Fill="{StaticResource Dark_Text}" />
+            <!--<VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).                 (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource Color_Dark_Background_Hover}" />
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed" />
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).                 (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource Color_DarkBackground}" />
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="(Shape.Fill).                 (SolidColorBrush.Color)">
+                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource Color_Dark_Text_Disabled}" />
+                            </ColorAnimationUsingKeyFrames>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).                 (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource Color_DarkBackground3}" />
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="CheckStates">
+                    <VisualState x:Name="Checked">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).                 (GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource ControlPressedColor}" />
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unchecked" />
+                    <VisualState x:Name="Indeterminate" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>-->
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Hover}" />
+                <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource Dark_Text_Hover}" />
+            </Trigger>
+            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Hover}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Disabled}" />
+                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Dark_Background_Light_Border}" />
+                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundColor}" />
+                <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource Dark_Foreground_Disabled}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ComboBoxTextBoxDark" TargetType="{x:Type TextBox}">
+        <Border x:Name="PART_ContentHost"
+                Background="{TemplateBinding Background}"
+                Focusable="False"
+                TextBlock.Foreground="{TemplateBinding Foreground}" />
+    </ControlTemplate>
+    <!--  "{TemplateBinding Focusable}"  -->
+
+
+
+
+
+    <Style x:Key="{x:Type GridViewColumnHeader}" TargetType="GridViewColumnHeader">
+        <Setter Property="Background" Value="{StaticResource DarkBackground_Light}" />
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+    </Style>
+    <!--  FocusVisual  -->
+
+    <Style x:Key="ButtonFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border>
+                        <Rectangle Margin="2"
+                                   Stroke="#60000000"
+                                   StrokeDashArray="1 2"
+                                   StrokeThickness="1" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  https://msdn.microsoft.com/en-us/library/ms753328(v=vs.85).aspx  -->
+    <Style x:Key="DarkButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+        <!--<Setter Property="TextBlock.Style" Value="{StaticResource TextBlockBase}"/>-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            Background="{StaticResource TransparentBrush}"
+                            BorderBrush="{x:Null}"
+                            BorderThickness="1"
+                            CornerRadius="2"
+                            TextBlock.Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter Margin="2"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{StaticResource Dark_Text_Hover}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{StaticResource Dark_Text_Clicked}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource Dark_Text_Disabled}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DarkFontButtonStyle"
+           BasedOn="{StaticResource DarkButtonStyle}"
+           TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="FontAwesome" />
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="Margin" Value="5,0,0,0" />
+    </Style>
+
+    <!--  Button  -->
+
+    <Style x:Key="ButtonStyle"
+           BasedOn="{StaticResource DarkButtonStyle}"
+           TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="FontFamily" Value="FontAwesome" />
+        <Setter Property="FontSize" Value="25" />
+    </Style>
+    <Style x:Key="TextBlockBase" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Hover}" />
+            </Trigger>
+            <Trigger Property="IsManipulationEnabled" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource RoleEmpty}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Disabled}" />
+            </Trigger>
+        </Style.Triggers>
+        <!--<Setter Property="Background" Value="{DynamicResource DarkBackground}"/>-->
+    </Style>
+
+
+    <Style x:Key="ComboBoxDark"
+           BasedOn="{StaticResource {x:Type ComboBox}}"
+           TargetType="{x:Type ComboBox}" />
+    <Style x:Key="TabHeaderStyle"
+           BasedOn="{StaticResource TextBlockBase}"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="6,0" />
+        <Setter Property="TextAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style TargetType="{x:Type TabItem}">
+        <Setter Property="Foreground" Value="{DynamicResource Dark_Text}" />
+        <Setter Property="Background" Value="{DynamicResource DarkBackground_Light}" />
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate DataType="{x:Type TabItem}">
+                    <Border x:Name="grid">
+                        <ContentPresenter>
+                            <ContentPresenter.Content>
+                                <TextBlock Style="{StaticResource TabHeaderStyle}" Text="{TemplateBinding Content}" />
+                            </ContentPresenter.Content>
+                        </ContentPresenter>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid>
+                        <Border Name="Border"
+                                Margin="0,0,-4,0"
+                                Background="{StaticResource DarkBackground_Light}"
+                                BorderBrush="{StaticResource Dark_Background_Light_Border}"
+                                BorderThickness="1,1,1,1"
+                                TextBlock.Foreground="{TemplateBinding Foreground}">
+                            <ContentPresenter x:Name="ContentSite"
+                                              Margin="12,2,12,2"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              ContentSource="Header"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Panel.ZIndex" Value="100" />
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Selected}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            <Setter Property="Foreground" Value="{StaticResource Dark_Text_Clicked}" />
+                            <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{StaticResource Dark_Text_Clicked}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Disabled}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Dark_Background_Light_Border}" />
+                            <Setter Property="Foreground" Value="{StaticResource DisabledForegroundColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--<Style d:IsDefaultStyle="True" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+        <Setter Property="Background" Value="{StaticResource DarkBackground_Light}" />
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Hover}" />
+                <Setter Property="Background" Value="{StaticResource Dark_Background_Selected}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Disabled}" />
+                <Setter Property="Background" Value="{StaticResource Dark_Background_Disabled}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>-->
+    <Style d:IsDefaultStyle="True" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+        <Setter Property="Background" Value="{StaticResource DarkBackground_Light}" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Disabled}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style d:IsDefaultStyle="True" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Hover}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Disabled}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Type ListBox}" TargetType="ListBox">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border Name="Border"
+                            Background="{StaticResource DarkBackground_Light}"
+                            BorderBrush="{StaticResource Dark_Background_Light_Border}"
+                            BorderThickness="1"
+                            CornerRadius="2">
+                        <ScrollViewer Margin="0" Focusable="false">
+                            <StackPanel Margin="2" IsItemsHost="True" />
+                        </ScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Disabled}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Dark_Background_Light_Border}" />
+                        </Trigger>
+                        <!--       <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--        <Style  TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockBase}"
+                d:IsDefaultStyle="True">
+
+        </Style>-->
+    <Style d:IsDefaultStyle="True" TargetType="{x:Type CheckBox}">
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Hover}" />
+            </Trigger>
+            <Trigger Property="IsManipulationEnabled" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource RoleEmpty}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Disabled}" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource Dark_Text_Clicked}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="{x:Type ListView}" TargetType="ListView">
+        <Setter Property="Background" Value="{StaticResource DarkBackground}" />
+        <Setter Property="Foreground" Value="{StaticResource Dark_Text}" />
+    </Style>
+
+    <Style x:Key="DarkListViewItem" TargetType="{x:Type ListViewItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <!--<Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border Name="Border"
+                            Background="Transparent"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="2"
+                            SnapsToDevicePixels="true">
+
+                        <GridViewRowPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Selected}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource Dark_Background_Hover}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{StaticResource Dark_Foreground_Disabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
