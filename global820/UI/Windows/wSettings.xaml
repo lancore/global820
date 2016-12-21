@@ -145,7 +145,8 @@
                      Text="{Binding Source={x:Static properties:Settings.Default},
                                     Path=Filter,
                                     Mode=TwoWay}"
-                     MinHeight="50" />
+                     MinHeight="50"
+                     AcceptsReturn="True" />
         </Grid>
         <Grid x:Name="grid_notifylist"
               Grid.Row="5"
@@ -165,7 +166,8 @@
                      Text="{Binding Source={x:Static properties:Settings.Default},
                                     Path=NotifyList,
                                     Mode=TwoWay}"
-                     MinHeight="50" />
+                     MinHeight="50"
+                     AcceptsReturn="True" />
         </Grid>
         <Grid x:Name="grid_buttons"
               Grid.Row="6"
